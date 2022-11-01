@@ -20,8 +20,8 @@ public class Board : MonoBehaviour
     public Vector3Int startPos = new Vector3Int(-1,8,0);
     public Vector2Int boardSize = new Vector2Int(10, 20);
 
-    public Vector3Int previewPosition = new Vector3Int(-1, 12, 0);
-    public Vector3Int holdPosition = new Vector3Int(-1, 16, 0);
+    public Vector3Int previewPosition = new Vector3Int(8, 1, 0);
+    public Vector3Int holdPosition = new Vector3Int(-10, 7, 0);
 
 
     public RectInt Bounds
@@ -106,6 +106,7 @@ public class Board : MonoBehaviour
             Vector3Int tilePos = piece.cells[i] + piece.position;
             this.tilemap.SetTile(tilePos, null);
         }
+        
     }
 
     public bool IsValidPos(Piece piece, Vector3Int pos)
@@ -175,6 +176,7 @@ public class Board : MonoBehaviour
             Vector3Int position = new Vector3Int(col, row, 0);
             tilemap.SetTile(position, null);
         }
+        
 
         
         while (row < bounds.yMax)
