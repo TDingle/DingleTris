@@ -9,6 +9,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     public Board board { get; private set; }
+   
     public TetrominoData data { get; private set; }
 
     public Vector3Int position { get; private set; }
@@ -32,44 +33,10 @@ public class Piece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.board.Clear(this);
-
-        this.lockTime += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (!board.gameover)
         {
-            Rotate(-1);
-        }else if(Input.GetKeyDown(KeyCode.X))
-        {
-            Rotate(1);
+            PieceFunction();
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Move(Vector2Int.left);
-        } else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Move(Vector2Int.right);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Move(Vector2Int.down);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            while (Move(Vector2Int.down))
-            {
-                continue;
-            }
-            Lock();
-        }
-
-        if (Time.time >= this.stepTime)
-        {
-            Step();
-        }
-        this.board.Set(this);
     }
     private void Step()
     {
@@ -198,5 +165,48 @@ public class Piece : MonoBehaviour
         {
             return min + (input - min) % (max - min);
         }
+    }
+    private void PieceFunction()
+    {
+        this.board.Clear(this);
+
+        this.lockTime += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Rotate(-1);
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            Rotate(1);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Move(Vector2Int.left);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Move(Vector2Int.right);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Move(Vector2Int.down);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            while (Move(Vector2Int.down))
+            {
+                continue;
+            }
+            Lock();
+        }
+
+        if (Time.time >= this.stepTime)
+        {
+            Step();
+        }
+        this.board.Set(this);
     }
 }

@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using TMPro;
+using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class Board : MonoBehaviour
     public bool swapCheck = true;
     public int linesCleared = 0;
     public int score = 0;
+    public bool gameover = false;
+
+    [SerializeField] GameObject _scoreText;
 
     public Vector3Int startPos = new Vector3Int(-1,8,0);
     public Vector2Int boardSize = new Vector2Int(10, 20);
@@ -56,11 +61,18 @@ public class Board : MonoBehaviour
         SpawnPiece();
     }
     private void Update()
-    {
+    { 
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             SwapPiece();
         }
+    }
+    private void IncreaseScore()
+    {
+        GameObject something = GameObject.FindWithTag("Score");
+        TextMeshPro balls = something.GetComponent<TextMeshPro>();
+        balls.text = score.ToString();
     }
     private void SetNextPiece()
     {
@@ -146,6 +158,7 @@ public class Board : MonoBehaviour
             }
         }
         Points();
+        IncreaseScore();
 
     }
 
@@ -229,6 +242,7 @@ public class Board : MonoBehaviour
      public void GameOver()
     {
         tilemap.ClearAllTiles();
+        gameover = true;
     }
 
     public void Points()
