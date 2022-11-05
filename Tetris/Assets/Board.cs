@@ -17,6 +17,7 @@ public class Board : MonoBehaviour
 
     public bool swapCheck = true;
     public int linesCleared = 0;
+    public int totalLinesCleared = 0;
     public int score = 0;
     public bool gameover = false;
 
@@ -151,6 +152,8 @@ public class Board : MonoBehaviour
             {
                 LineClear(row);
                 linesCleared++;
+                totalLinesCleared++;
+                Debug.Log(totalLinesCleared);
             }
             else
             {
@@ -255,7 +258,6 @@ public class Board : MonoBehaviour
             score += 300;
         else if (linesCleared == 4)
             score += 1200;
-        Debug.Log(score);
         linesCleared = 0;
     }
    

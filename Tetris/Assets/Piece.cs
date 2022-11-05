@@ -18,10 +18,12 @@ public class Piece : MonoBehaviour
 
     public int rotationIndex { get; private set; }
 
-    public float stepDelay = 1f;
+    public double stepDelay = 1f;
     public float lockDelay = 0.5f;
 
-    private float stepTime;
+    public int currentLevel = 0;
+
+    private double stepTime;
     private float lockTime;
 
     // Start is called before the first frame update
@@ -33,8 +35,10 @@ public class Piece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!board.gameover)
         {
+            LevelScale();
             PieceFunction();
         }
     }
@@ -208,5 +212,18 @@ public class Piece : MonoBehaviour
             Step();
         }
         this.board.Set(this);
+    }
+    private void LevelScale()
+    {
+        int lineBeforeLevelIncrease = currentLevel * 10 + 10;
+        
+        if (board.totalLinesCleared >= lineBeforeLevelIncrease)
+        {
+            currentLevel++;
+            stepDelay -= 0.2;
+        }
+        Debug.Log(currentLevel);
+        Debug.Log(lineBeforeLevelIncrease);
+        Debug.Log(board.totalLinesCleared);
     }
 }
