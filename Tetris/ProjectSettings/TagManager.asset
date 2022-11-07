@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Score
+  - Level
+  - Mouth
+  - Baby
   layers:
   - Default
   - TransparentFX
@@ -12,7 +15,7 @@ TagManager:
   - Background
   - Water
   - UI
-  - 
+  - foregorund
   - 
   - 
   - 

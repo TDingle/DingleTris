@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class GhostPiece : MonoBehaviour
 {
    public Tile tile;
-   public Board board;
-    public Piece trackingPiece;
+   public PlayGrid board;
+    public SingleBlock trackingPiece;
 
     public Tilemap tilemap { get; private set; }
     public Vector3Int position { get; private set; }
@@ -46,7 +46,7 @@ public class GhostPiece : MonoBehaviour
     {
         Vector3Int position = this.trackingPiece.position;
         int currentRow = position.y;
-        int bottom = -this.board.boardSize.y / 2 - 1;
+        int bottom = -this.board.gridSize.y / 2 - 1;
 
         this.board.Clear(this.trackingPiece);
         for ( int row = currentRow; row >= bottom; row--)
