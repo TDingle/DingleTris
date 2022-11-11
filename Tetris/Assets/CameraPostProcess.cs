@@ -8,7 +8,7 @@ public class CameraPostProcess : MonoBehaviour
     public Material material;
     private void Awake()
     {
-        SetPalette(10);
+        SetPalette(5);
     }
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {

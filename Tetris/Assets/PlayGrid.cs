@@ -16,6 +16,7 @@ public class PlayGrid : MonoBehaviour
     public SingleBlock nextBlock { get; private set; }
     public SingleBlock savedBlock { get; private set; }
 
+    public Menu restart;
 
     public bool swapCheck = true;
     public int linesCleared = 0;
@@ -41,7 +42,13 @@ public class PlayGrid : MonoBehaviour
             }
     }
     private void Awake()
+
     {
+        gameover = true;
+
+        restart.EnableStart();
+        restart.DisableRestart();
+
         this.tilemap = GetComponentInChildren<Tilemap>();
         this.activeBlock = GetComponentInChildren<SingleBlock>();
 
@@ -61,6 +68,7 @@ public class PlayGrid : MonoBehaviour
     }
     void Start()
     {
+        
         SetNextBlock();
         SpawnBlock();
     }
@@ -254,6 +262,8 @@ public class PlayGrid : MonoBehaviour
     {
         tilemap.ClearAllTiles();
         gameover = true;
+        restart.EnableRestart();
+
     }
 
     public void Points()
