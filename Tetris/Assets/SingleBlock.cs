@@ -15,7 +15,7 @@ public class SingleBlock : MonoBehaviour
 
     public Vector3Int position { get; private set; }
 
-    public Vector3Int[] cells { get; private set; } 
+    public Vector3Int[] cells { get; private set; }
 
     public int rotationIndex { get; private set; }
 

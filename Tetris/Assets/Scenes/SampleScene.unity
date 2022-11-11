@@ -204,8 +204,8 @@ MonoBehaviour:
   gameover: 0
   blocks: {fileID: 1464304097}
   _scoreText: {fileID: 1379800424}
-  startPos: {x: -1, y: 8, z: 0}
-  boardSize: {x: 10, y: 20}
+  startPosition: {x: -1, y: 8, z: 0}
+  gridSize: {x: 10, y: 20}
   previewPosition: {x: 8, y: 1, z: 0}
   holdPosition: {x: -10, y: 7, z: 0}
 --- !u!114 &59157004
@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -452,7 +453,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.052576
+  orthographic size: 11.161144
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -478,11 +479,25 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1500cb49be96b49cc9ab32fa5d454daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 59157004}
+  material: {fileID: 2100000, guid: 998a6ac054ec041efa0c8c37fded1374, type: 2}
 --- !u!1 &522086799
 GameObject:
   m_ObjectHideFlags: 0
