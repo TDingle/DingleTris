@@ -132,7 +132,8 @@ public class PlayGrid : MonoBehaviour
             Vector3Int tilePos = piece.cells[i] + piece.position;
             this.tilemap.SetTile(tilePos, null);
         }
-        
+       
+
     }
 
     public bool IsValidPos(SingleBlock piece, Vector3Int pos)
@@ -166,7 +167,7 @@ public class PlayGrid : MonoBehaviour
                 LineClear(row);
                 linesCleared++;
                 totalLinesCleared++;
-                Debug.Log(totalLinesCleared);
+       
                 spawnParticle();
                 
                 
@@ -176,6 +177,7 @@ public class PlayGrid : MonoBehaviour
                 row++;
             }
         }
+        
         Points();
         IncreaseScore();
         

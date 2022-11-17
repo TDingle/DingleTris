@@ -19,6 +19,8 @@ public class SingleBlock : MonoBehaviour
 
     public int rotationIndex { get; private set; }
 
+    public CameraPostProcess setPal;
+
     public double stepDelay = 1;
     public double lockDelay = 0.5;
 
@@ -217,7 +219,7 @@ public class SingleBlock : MonoBehaviour
     private void LevelScale()
     {
         int lineBeforeLevelIncrease = currentLevel * 10 + 10;
-        if(currentLevel == 29)
+        if(currentLevel == 30)
         {
             stepDelay = .001;
             lockDelay = 0.2;
@@ -225,6 +227,7 @@ public class SingleBlock : MonoBehaviour
         else if (grid.totalLinesCleared >= lineBeforeLevelIncrease)
         {
             currentLevel++;
+            //setPal.SetPalette(currentLevel);
             stepDelay -= 0.034;
             lockDelay -= 0.004;
         }
